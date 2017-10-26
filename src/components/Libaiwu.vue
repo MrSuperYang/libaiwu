@@ -18,4 +18,8 @@
 		margin-top: 20px;
 		width: 1280px;
 	}
+	ul{
+		width: 1280px;
+		margin: 0 auto 20px;
+	}
 </style>

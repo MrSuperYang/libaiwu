@@ -9,7 +9,7 @@
 			<!--右侧信息-->
 			<div class="header_menu">
 				<a href="/logoin">登录</a>
-				<a href="javascript:void(0)">注册</a>
+				<a href="logoreg">注册</a>
 				<a href="/person/myorder">我的订单</a>
 				<a href="/person/Mymessage">我的消息</a>
 				<a href="javascript:void(0)">我是商家</a>
@@ -21,11 +21,11 @@
 			<div class="header_mainnav">
 				<div class="header_logo"><a href="/"><img src="../pages/index/assets/header/logo.jpg" alt="" /></a></div>
 				<div class="login_title"> 
-					<p>我的购物车</p>
+					<p class="fir">我的购物车</p>
 					<span>></span>
-					<p>确认订单信息</p>
+					<p class="sec">确认订单信息</p>
 					<span>></span>
-					<p>订单提交成功</p>
+					<p class="thir">订单提交成功</p>
 				</div>
 			</div>
 		</div>
@@ -45,6 +45,23 @@
 		name:'loginheader',
 		components:{
 			
+		},
+		data() {
+			return {
+				address: '哈密市伊州区',
+				bol:false
+			}
+		},
+		mounted() {
+		},
+		methods:{
+			city:function () {
+				this.address=$("select").eq(1).val()+$("select").eq(2).val();
+				this.bol=false;
+			},
+			see:function () {
+				this.bol=true;
+			}
 		}
 	}
 </script>
@@ -187,4 +204,7 @@
 		color: white;
 		border-radius: 5px;
 	}
+	/*.login_title .fir{
+		color: orange;
+	}*/
 </style>

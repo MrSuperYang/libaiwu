@@ -87,7 +87,7 @@
 			<div class="money">
 				<span>商品总计：</span>
 				<b>¥2977</b>
-				<i>立即购买</i>
+				<i><router-link to="/shopcar/ShopCarDetel">立即购买</router-link></i>
 			</div>
 		</div>
 		
@@ -102,10 +102,6 @@
 </script>
 
 <style scoped>
-	* {
-		margin: 0;
-		padding: 0;
-	}
 	i{
 		font-style: normal;
 	}

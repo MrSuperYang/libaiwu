@@ -18,10 +18,21 @@
 			//Shopcardel,
 			Headers,
 			Footers,
-		}
+		},
+//		mounted(){
+//			$(".money i").on("click", function() {
+//				$(".header_mainnav .login_title .fir").css("color", "#666666");
+//				$(".header_mainnav .login_title .sec").css("color", "orange");
+//				$(".header_mainnav .login_title .thir").css("color", "#666666");
+//			});
+//			$(".abxxh button").on("click", function() {
+//				$(".header_mainnav .login_title .fir").css("color", "#666666");
+//				$(".header_mainnav .login_title .sec").css("color", "#666666");
+//				$(".header_mainnav .login_title .thir").css("color", "orange");
+//			});
+//		}
 	}
 </script>
 
-<style scoped>
-
+<style>
 </style>

@@ -9,7 +9,7 @@
 			<!--右侧信息-->
 			<div class="header_menu">
 				<a href="/logoin">登录</a>
-				<a href="javascript:void(0)">注册</a>
+				<a href="logoreg">注册</a>
 				<a href="/person/myorder">我的订单</a>
 				<a href="/person/Mymessage">我的消息</a>
 				<a href="javascript:void(0)">我是商家</a>

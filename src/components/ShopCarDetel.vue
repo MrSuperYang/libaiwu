@@ -124,7 +124,7 @@
 		<div class="abxxh">
 			<div>实付金额：<span>¥2977</span></div>
 			<div>订单完成后可获得积分：<span>300积分</span></div>
-			<button>提交订单</button>
+			<button><router-link to="/shopcar/ShopCarrechargeok">提交订单</router-link></button>
 		</div>
 	</div>
 </template>
@@ -132,11 +132,7 @@
 <script>
 </script>
 
-<style>
-	* {
-		margin: 0;
-		padding: 0;
-	}
+<style scoped>
 	
 	.abtop {
 		width: 1280px;
@@ -430,6 +426,7 @@
 		margin-left: 1025px;
 	}
 	.abxxh button{
+		outline: none;
 		width: 150px;
 		height: 50px;
 		color: white;

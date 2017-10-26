@@ -2,9 +2,9 @@
 	<div class="ww">
 			<!--顶部信息-->			
 				<div class="wwrapw">
-					<div class="wheader">
+					<!--<div class="wheader">
 						<div class="wlogo">
-							<img src="../assets/chongzhi_pay/ylogo.png" alt="" />
+							<img src="../pages/index/assets/chongzhi_pay/ylogo.jpg" alt="" />
 						</div>
 						<div class="wheader_right">
 							<ul>
@@ -15,17 +15,17 @@
 								<li>订单提交成功</li>
 							</ul>
 						</div>
-					</div>
+					</div>-->
 					<!--订单已提交-->
 					<div class="w_submit">
-						<img src="../assets/chongzhi_pay/zhifu_01.png" /><br />
+						<img src="../pages/index/assets/chongzhi_pay/zhifu_01.jpg" /><br />
 						<em>订单已提交,请在24小时内完成支付</em><em>(订单逾期将被取消)</em>
 					</div>
 					<!--送货地址-->
 					<div class="w_delivery">
 
 						<div class="w_dingwei">
-							<img src="../assets/chongzhi_pay/zhifu_02.png" />
+							<img src="../pages/index/assets/chongzhi_pay/zhifu_02.jpg" />
 							<span>送货至 : 但小兵 北京市 仓平区 天通苑明天第一城4号楼101 固定电话 010-21541589</span>
 						</div>
 						<!--应付金额部分-->
@@ -44,23 +44,23 @@
 						<div class="wpayment">
 							<input type="radio" checked=""  />
 							<div class="chongzhi_money">								
-								<img src="../assets/chongzhi_pay/zhifu_03.png" />
+								<img src="../pages/index/assets/chongzhi_pay/zhifu_03.jpg" />
 							</div>
 							
 							<input type="radio"  class="pay_in"/>
 							<div class="chongzhi_money">
 								
-								<img src="../assets/chongzhi_pay/zhifu_04.png" />
+								<img src="../pages/index/assets/chongzhi_pay/zhifu_04.jpg" />
 							</div>
 							<input type="radio" class="pay_in" />
 							<div class="chongzhi_money">
 								
-								<img src="../assets/chongzhi_pay/zhifu_05.png" /><span>银联支付</span>
+								<img src="../pages/index/assets/chongzhi_pay/zhifu_05.jpg" /><span>银联支付</span>
 							</div>
 							<input type="radio" class="pay_in" />
 							<div class="chongzhi_money1">
 								
-								<img src="../assets/chongzhi_pay/zhifu_06.png" /><span>余额支付( ¥500 )</span>
+								<img src="../pages/index/assets/chongzhi_pay/zhifu_06.jpg" /><span>余额支付( ¥500 )</span>
 							</div>
 						</div>
 						<!--扫码支付-->
@@ -68,21 +68,21 @@
 							<div class="wzhifu_bao">															
 								<div class="zhifubao_left">
 									<span>使用电脑支付</span>
-									<img src="../assets/chongzhi_pay/zhifu_pay01.jpg"/>
+									<img src="../pages/index/assets/chongzhi_pay/zhifu_pay01.jpg"/>
 									<button class="zhifu_pay">立即支付</button>
 								</div>
 								<strong>或</strong>
 								<div class="zhifubao_right">
 									<span>使用支付宝钱包扫一扫付款</span>
-									<img src="../assets/chongzhi_pay/zhifu_pay02.jpg"/>
+									<img src="../pages/index/assets/chongzhi_pay/zhifu_pay02.jpg"/>
 								</div>
 							</div>
 							<div class="wzhifu_weixin">
 								
-								<img src="../assets/chongzhi_pay/zhifu_pay03.jpg"/ class="saoyisao">
+								<img src="../pages/index/assets/chongzhi_pay/zhifu_pay03.jpg" class="saoyisao">
 								<div class="weixin">
 									<span>使用微信扫一扫付款</span>
-									<img src="../assets/chongzhi_pay/zhifu_pay04.jpg"/>
+									<img src="../pages/index/assets/chongzhi_pay/zhifu_pay04.jpg"/>
 								</div>								
 							</div>
 					</div>
@@ -194,7 +194,7 @@ table {
 			}			
 			.wamount_left strong {
 				display: inline-block;
-				padding-top: 30px;
+				padding-top: 20px;
 			}
 			
 			.wamount_left i {

@@ -44,7 +44,7 @@
 		<!--头部之后的详情部分-->
 		<ul class="bcontent">
 			<li>
-				<img src="../pages/index/assets/aimgd/猕猴桃.jpg" alt="" />
+				<img src="../pages/index/assets/aimgd/草莓.jpg" alt="" />
 				<div class="btext">
 					<p class="btexta">新西兰佳沛黄金奇异果</p>
 					<p class="btextb">果肉绵密、花蜜版的甘甜百吃不厌</p>
@@ -52,7 +52,7 @@
 				</div>
 			</li>
 			<li>
-				<img src="../pages/index/assets/aimgd/葡萄.jpg" alt="" />
+				<img src="../pages/index/assets/aimgd/草莓.jpg" alt="" />
 				<div class="btext">
 					<p class="btexta">新西兰佳沛黄金奇异果</p>
 					<p class="btextb">果肉绵密、花蜜版的甘甜百吃不厌</p>
@@ -60,7 +60,7 @@
 				</div>
 			</li>
 			<li>
-				<img src="../pages/index/assets/aimgd/杏子.jpg" alt="" />
+				<img src="../pages/index/assets/aimgd/草莓.jpg" alt="" />
 				<div class="btext">
 					<p class="btexta">新西兰佳沛黄金奇异果</p>
 					<p class="btextb">果肉绵密、花蜜版的甘甜百吃不厌</p>

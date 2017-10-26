@@ -46,11 +46,11 @@
 					</div>
 				</div>
 				<div class="header_user">
-					<a href="/user">
+					<a href="/person">
 						<img src="../pages/index/assets/用户.jpg" alt="" />
 						<span>个人中心</span>
 					</a>
-					<a href="/cart/index">
+					<a href="/shopcar">
 						<img src="../pages/index/assets/car.jpg" alt="" />
 						<span>购物车</span>
 					</a>
@@ -61,7 +61,7 @@
 			<div id="header_nav">
 				<div class="header_nav">
 					<div class="nav_all">
-						<a href="/goods/index"><span>全部分类</span><img src="../pages/index/assets/header/list_icon.png" alt="" /></a>
+						<a href="/Delshapinfenlei"><span>全部分类</span><img src="../pages/index/assets/header/list_icon.png" alt="" /></a>
 					</div>
 					<!--隐藏菜单-->
 					<ul class="list_menu">
@@ -234,13 +234,13 @@
 						<a href="/">首页</a>
 					</li>
 					<li class="li">
-						<a href="/city">同城</a>
+						<a href="/tongcheng">同城</a>
 					</li>
 					<li class="li">
-						<a href="/friday">礼拜五</a>
+						<a href="/zzz">礼拜五</a>
 					</li>
 					<li class="li">
-						<a href="/jifenshop">积分商城</a>
+						<a href="/jifen">积分商城</a>
 					</li>
 				</ul>
 			</div>

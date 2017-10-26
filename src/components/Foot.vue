@@ -48,7 +48,7 @@
 				</div>
 				<div class="list">
 					<dl>
-						<dt class="specil">关于礼拜五</dt>
+						<dt class="specil"><router-link to="/AboutFride">关于礼拜五</router-link></dt>
 						<dt>新用户注册</dt>
 						<dt>在线下单</dt>
 						<dt>支付方式</dt>
@@ -87,7 +87,7 @@
 		name: 'two',
 		data() {
 			return {
-				msg: 'I am two'
+				
 			}
 		}
 	}

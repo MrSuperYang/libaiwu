@@ -7,7 +7,7 @@
 
 <script>
 	import Zz from "./Libaiwu"
-	import Zhuanti from "./miaobaoxie"
+	import Zhuanti from "./Mianbaoxie"
 	
 	export default {
 		name: 'app',

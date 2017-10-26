@@ -52,7 +52,7 @@
 </template>
 
 <script>
-	import Zhuanti from "./zhuanti"
+	import Zhuanti from "./Mianbaoxie"
 	export default {
 		name: 'app',
 		components: {

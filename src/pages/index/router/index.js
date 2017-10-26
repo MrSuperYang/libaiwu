@@ -11,16 +11,20 @@ import Orderevaluation from '../../../components/Personevaluation'
 import Personaldata from '../../../components/PersData'
 import Shopcardel from '../../../components/Shopcardel'
 import Shoppingcartempty from '../../../components/Shoppingcart_empty'
+import ShopCarDetel from '../../../components/ShopCarDetel'
+import ShopCarrechargeok from '../../../components/ShopCarrechargeok'
 import Mycollection from '../../../components/PersonCollection'
 import Modifypassword from '../../../components/PersonBind'
 import Mymessage from '../../../components/PersonMessage'
 import Opinionfeedback from '../../../components/Personfeedback'
 import Mywallet from '../../../components/PersonWallet'
+import AboutFride from '../../../components/AboutFride'
+import Delshapinfenlei from '../../../components/Delshapinfenlei'
 import Integralorder from '../../../components/PersonOrderDel'
 import My_points from '../../../components/PersonPoints'
 import Prepaidcardexchange from '../../../components/Prepaidcardexchange'
 import Jifen from '@/components/Jfendel'
-import Libaiwu from '../../../components/Libaiwu'
+import Libaiwu from '../../../components/LibaiwuDel'
 import Shouye from '../../../components/shouye'
 import Index from '@/modules/Index'
 import Logoin from '@/modules/logoin'
@@ -56,6 +60,10 @@ export default new Router({
 				breadcrumbName: "同城"
 			},
 		}, {
+			path: '/Delshapinfenlei',
+			name: 'Delshapinfenlei',
+			component: Delshapinfenlei,
+		},{
 			path: '/zzz',
 			name: 'libaiwu',
 			component: Libaiwu,
@@ -66,7 +74,13 @@ export default new Router({
 			path: '/jifen',
 			name: 'jifen',
 			component: Jifen,
-
+			meta: {
+				breadcrumbName: "积分商城"
+			},
+		}, {
+			path: '/AboutFride',
+			name: 'AboutFride.vue',
+			component: AboutFride,
 		}]
 	}, {
 		path: '/logoreg',
@@ -84,9 +98,13 @@ export default new Router({
 			name: "detl",
 			component: Shopcardel
 		}, {
-			path: '/a',
-			name: "Shoppingcartempty",
-			component: Shoppingcartempty
+			path: '/shopcar/ShopCarDetel',
+			name: "ShopCarDetel",
+			component: ShopCarDetel
+		}, {
+			path: '/shopcar/ShopCarrechargeok',
+			name: "ShopCarrechargeok",
+			component: ShopCarrechargeok
 		}]
 	}, {
 		path: '/logoin',
