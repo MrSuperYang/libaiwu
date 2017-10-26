@@ -1,21 +1,22 @@
 <template>
   <div class="login_header">
-    <div class="header_topnav">
+    <!--<div class="header_topnav">-->
 			<!--所在城市-->
-			<div class="header_adress" @click="see()">
+			<!--<div class="header_adress" @click="see()">
 				<span>所在城市:</span>
 				<a href="javascript:void(0)">{{address}}</a><img src="../pages/index/assets/header/header_top.jpg" alt="" />
-			</div>
+			</div>-->
 			<!--右侧信息-->
-			<div class="header_menu">
+			<!--<div class="header_menu">
 				<a href="/logoin">登录</a>
 				<a href="javascript:void(0)">注册</a>
 				<a href="/person/myorder">我的订单</a>
 				<a href="/person/Mymessage">我的消息</a>
-				<a href="javascript:void(0)">我是商家</a>
+				<a href="/Delmerchant">我是商家</a>
 				<a href="javascript:void(0)"><img src="../pages/index/assets/header/header_tel.jpg" /><span>400-800-8820</span></a>
 			</div>
-		</div>
+		</div>-->
+		<daohang></daohang>
 		<!--logo所在区域-->
 		<div class="header_middlenav">
 			<div class="header_mainnav">
@@ -30,28 +31,29 @@
 </template>
 
 <script>
+	import Daohang from "./Nav"
 	export default{
 		name:'loginheader',
 		components:{
-			
+			Daohang
 		},
 		data() {
 			return {
-				address: '哈密市伊州区',
-				bol:false
+//				address: '哈密市伊州区',
+//				bol:false
 			}
 		},
-		mounted() {
-		},
-		methods:{
-			city:function () {
-				this.address=$("select").eq(1).val()+$("select").eq(2).val();
-				this.bol=false;
-			},
-			see:function () {
-				this.bol=true;
-			}
-		}
+//		mounted() {
+//		},
+//		methods:{
+//			city:function () {
+//				this.address=$("select").eq(1).val()+$("select").eq(2).val();
+//				this.bol=false;
+//			},
+//			see:function () {
+//				this.bol=true;
+//			}
+//		}
 	}
 </script>
 

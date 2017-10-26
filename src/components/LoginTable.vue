@@ -4,7 +4,7 @@
 			<p class="login_title"><span>登录</span><span><a href="javascript:void(0)" v-on:click="shows()">账号密码登录</a></span><img src="../pages/index/assets/login/login_icon.jpg" alt="" /></p>
 			<ul>
 				<li class="phone_reg">
-					<input type="text" name="" id="getTel" value="" placeholder="请输入手机号" />
+					<input type="text" name="" id="getTel" value="" placeholder="请输入手机号" v-model="Phone"/>
 					<div>
 						<p v-show="phone"><span>!</span><span>{{msg}}</span></p>
 					</div>
@@ -33,32 +33,32 @@
 					<p>提示:未注册用户将直接注册成为礼拜五用户</p>
 					<p><span>---------------</span><span>用合作网站登录</span><span>---------------</span></p>
 					<p>
-						<!--<img src="../../assets/login/login_weixinicon.jpg" alt="" /><img src="../../assets/login/login_qqicon.jpg" alt="" />--></p>
+						<img src="../pages/index/assets/login/login_weixinicon.jpg" alt="" /><img src="../pages/index/assets/login/login_qqicon.jpg" alt="" /></p>
 				</li>
 			</ul>
 		</div>
 		<div class="login_mainbox" v-show="show">
 			<p class="login_title"><span>登录</span><span><a href="javascript:void(0)" v-on:click="shows()">手机验证登录</a></span>
-				<!--<img src="../../assets/login/phone_icon.png" alt="" />--></p>
+				<img src="../pages/index/assets/login/phone_icon.png" alt="" /></p>
 			<ul>
 				<li class="phone_reg">
-					<input type="text" name="" id="getTel" value="" placeholder="请输入手机号" />
+					<input type="text" name="" id="getTel" value="" placeholder="请输入手机号" v-model="Phone"/>
 					<div>
 						<p v-show="phone"><span>!</span><span>{{msg}}</span></p>
 					</div>
 				</li>
 				<li class="phone_reg num">
-					<input type="text" name="" id="getVerify" value="" placeholder="密码" />
+					<input type="text" name="" id="getVerify" value="" placeholder="密码" v-model="password"/>
 					<div>
 						<p v-show="verify"><span>!</span><span>{{msg}}</span></p>
 					</div>
 				</li>
 				<li class="verify_reg phone_reg">
-					<input type="text" name="" id="verify_num" value="" placeholder="验证码" />
+					<input type="text" name="" id="verify_num" value="" placeholder="验证码" v-model="yan"/>
 					<a href="###">
-						<!--<img src="../../assets/login/verify.png" alt="" />--></a>
+						<img src="../pages/index/assets/login/verify.jpg" alt="" /></a>
 					<a href="###"><span>看不清换一张</span></a>
-					<!--<div><p v-show="verify"><span>!</span><span>{{msg}}</span></p></div>-->
+					<div><p v-show="verify"><span>!</span><span>{{msg}}</span></p></div>
 				</li>
 
 				<li class="login_choose">
@@ -73,7 +73,7 @@
 					<p>提示:未注册用户将直接注册成为礼拜五用户</p>
 					<p><span>---------------</span><span>用合作网站登录</span><span>---------------</span></p>
 					<p>
-						<!--<img src="../../assets/login/login_weixinicon.jpg" alt="" /><img src="../../assets/login/login_qqicon.jpg" alt="" />--></p>
+						<img src="../pages/index/assets/login/login_weixinicon.jpg" alt="" /><img src="../pages/index/assets/login/login_qqicon.jpg" alt="" /></p>
 				</li>
 			</ul>
 		</div>
@@ -89,15 +89,31 @@
 				msg: '3333',
 				phone: true,
 				verify: true,
-				show: true
+				show: true,
+				Phone: '',
+				password: '',
+				yan:'',
+				
 			}
 		},
 		methods: {
-			reg: function() {
-
-			},
 			shows: function() {
 				this.show = !this.show;
+			},
+			contrast:function () {
+				var reg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/;
+				var phone = this.Phone;
+				var password = this.Password;
+				if(reg.test(phone) && ((password.length >= 6) && (password.length <= 18)) && (this.yan.length == 4)) {
+					this.$http.post('/api/user/adduser', {
+						phone: phone,
+						password: password
+					}, {}).then((response) => {
+						console.log(response);
+					})
+				} else {
+					
+				}
 			}
 		}
 	}

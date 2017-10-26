@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 //import HelloWorld from '@/components/HelloWorld'
+
+import Nav from '../../../components/Nav'
+
 import LoginTable from '../../../components/LoginTable'
 import Addressmanagement from '../../../components/PersonAddressmsg'
 import Bindphone from '../../../components/PersonBIndPhone'
@@ -20,6 +23,7 @@ import Opinionfeedback from '../../../components/Personfeedback'
 import Mywallet from '../../../components/PersonWallet'
 import AboutFride from '../../../components/AboutFride'
 import Delshapinfenlei from '../../../components/Delshapinfenlei'
+import Delmerchant from '../../../components/Del详情'
 import Integralorder from '../../../components/PersonOrderDel'
 import My_points from '../../../components/PersonPoints'
 import Prepaidcardexchange from '../../../components/Prepaidcardexchange'
@@ -79,8 +83,12 @@ export default new Router({
 			},
 		}, {
 			path: '/AboutFride',
-			name: 'AboutFride.vue',
+			name: 'AboutFride',
 			component: AboutFride,
+		}, {
+			path: '/Delmerchant',
+			name: 'Delmerchant',
+			component: Delmerchant,
 		}]
 	}, {
 		path: '/logoreg',
@@ -119,6 +127,10 @@ export default new Router({
 		path: '*',
 		name: '404',
 		component: Nosel,
+	}, {
+		path: '/nav',
+		name: 'nav',
+		component: Nav,
 	}, {
 		path: '/person',
 

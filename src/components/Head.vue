@@ -2,30 +2,31 @@
 	<!--头部组件-->
 	<div class="header">
 		<!--头部灰色部分-->
-		<div class="header_topnav">
+		<!--<div class="header_topnav">-->
 			<!--所在城市-->
-			<div class="header_adress">
+			<!--<div class="header_adress">
 				<span>所在城市:</span>
 				<a href="javascript:void(0)" class="a_adress">{{address}}</a><img src="../pages/index/assets/小三角.jpg" alt="" />
-			</div>
+			</div>-->
 			<!--城市弹框-->
-			<div class="mask_back">
+			<!--<div class="mask_back">
 				<div class="mask_top">
 					<p>建议您的收货地址&nbsp;:&nbsp;<span>哈密市伊州区</span></p>
 					<v-distpicker province="河南省" city="郑州市" area="金水区"></v-distpicker>
 					<button class="btn1">返回</button><button class="btn2">保存</button>
 				</div>
-			</div>
+			</div>-->
 			<!--右侧信息-->
-			<div class="header_menu">
+			<!--<div class="header_menu">
 				<a href="/logoin/">登录</a>
 				<a href="/logoreg">注册</a>
 				<a href="/person/myorder">我的订单</a>
 				<a href="/person/Mymessage">我的消息</a>
-				<a href="javascript:void(0)">我是商家</a>
+				<a href="/Delmerchant">我是商家</a>
 				<a href="javascript:void(0)"><img src="../pages/index/assets/电话.jpg" /><span>400-800-8820</span></a>
 			</div>
-		</div>
+		</div>-->
+		<daohang></daohang>
 		<!--logo所在区域-->
 		<div class="header_middlenav">
 			<div class="header_mainnav">
@@ -248,22 +249,18 @@
 	</div>
 </template>
 <script>
+	import Daohang from "./Nav"
 	export default {
 		name: "myheader",
 		data() {
 			return {
-				address: '哈密市伊州区',
+				
 			}
 		},
-		mounted(){
-			$(".a_adress").on("click", function() {
-				$(".mask_back").css("display", "block");
-			});
-			$(".btn1").click(function() {
-				$(".mask_back").css("display", "none");
-				this.address = $("select").eq(1).val() + $("select").eq(2).val();
-			});
-		}
+		components:{
+			Daohang
+		},
+		
 	}
 </script>
 <style scoped="scoped">
