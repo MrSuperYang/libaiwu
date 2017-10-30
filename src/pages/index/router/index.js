@@ -24,6 +24,8 @@ import Mywallet from '../../../components/PersonWallet'
 import AboutFride from '../../../components/AboutFride'
 import Delshapinfenlei from '../../../components/Delshapinfenlei'
 import Delmerchant from '../../../components/Del详情'
+import Delakesu from '../../../components/Delakesu'
+import DetailsNosel from '../../../components/DetailsNosel'
 import Integralorder from '../../../components/PersonOrderDel'
 import My_points from '../../../components/PersonPoints'
 import Prepaidcardexchange from '../../../components/Prepaidcardexchange'
@@ -88,8 +90,14 @@ export default new Router({
 		}, {
 			path: '/Delmerchant',
 			name: 'Delmerchant',
-			component: Delmerchant,
-		}]
+			component: Delmerchant,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 		}, {
+			path: '/Delakesu',
+			name: 'Delakesu',
+			component: Delakesu,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 		},, {
+			path: '/DetailsNosel',
+			name: 'DetailsNosel',
+			component: DetailsNosel,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 		}]
+		
 	}, {
 		path: '/logoreg',
 		name: 'logoreg',

@@ -26,13 +26,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="tan" v-show="bol">
+		<!--<div class="tan" v-show="bol">
 			<div class="move">
 				<div class="advice"><span>建议收货地址：</span><b>哈密市伊州区</b></div>
 				<v-distpicker province="广东省" city="广州市" area="海珠区"></v-distpicker>
 				<div class="save" @click="city()">保存</div>
 			</div>
-		</div>
+		</div>-->
   </div>
 	
 </template>

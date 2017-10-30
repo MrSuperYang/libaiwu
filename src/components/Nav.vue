@@ -15,8 +15,8 @@
 		</div>
 		<!--右侧信息-->
 		<div class="header_menu">
-			<a href="/logoin/">登录</a>
-			<a href="/logoreg">注册</a>
+			<a href="/logoin/">{{logoin}}</a>
+			<a href="/logoreg" @click="pull()">{{logoreg}}</a>
 			<a href="/person/myorder">我的订单</a>
 			<a href="/person/Mymessage">我的消息</a>
 			<a href="/Delmerchant">我是商家</a>
@@ -31,6 +31,8 @@
 		data() {
 			return {
 				dizhi: '哈密市伊州区',
+				logoin: "登录",
+				logoreg: "注册"
 			}
 		},
 		mounted() {
@@ -41,18 +43,32 @@
 				$(".mask_back").css("display", "none");
 			});
 			$(".btn2").on("click", function() {
-					$(".mask_back").css("display", "none");
+				$(".mask_back").css("display", "none");
 			});
-		},
-		methods:{
-			click:function () {
-				this.dizhi = $("select").eq(1).val() + $("select").eq(2).val();
+			if(localStorage.b == 1) {
+				this.logoin = "您好"+localStorage.a;
+				this.logoreg = "退出";
 			}
-		}
+		},
+		methods: {
+			click: function() {
+				this.dizhi = $("select").eq(1).val() + $("select").eq(2).val();
+			},
+			pull: function() {
+				localStorage.clear();
+				this.logoreg = "注册";
+				this.$router.push({
+					path: '/'
+				});
+			}
+		},
 	}
 </script>
 
 <style scoped="scoped">
+	img{
+		vertical-align: middle;
+	}
 	.header_topnav {
 		width: 1280px;
 		margin: auto;

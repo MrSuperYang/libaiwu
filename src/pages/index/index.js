@@ -8,7 +8,10 @@ import $ from 'jquery'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import Distpicker from 'v-distpicker'
+import Vuex from 'vuex'
+import store from '../../../static/store'
 
+Vue.use(Vuex)
 Vue.component('v-distpicker', Distpicker)
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource)
@@ -21,5 +24,6 @@ new Vue({
   el: '#app',
   router:router,
   template: '<App/>',
-  components: { App }
+  components: { App },
+  store,
 })

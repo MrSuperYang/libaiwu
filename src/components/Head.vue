@@ -3,21 +3,21 @@
 	<div class="header">
 		<!--头部灰色部分-->
 		<!--<div class="header_topnav">-->
-			<!--所在城市-->
-			<!--<div class="header_adress">
+		<!--所在城市-->
+		<!--<div class="header_adress">
 				<span>所在城市:</span>
 				<a href="javascript:void(0)" class="a_adress">{{address}}</a><img src="../pages/index/assets/小三角.jpg" alt="" />
 			</div>-->
-			<!--城市弹框-->
-			<!--<div class="mask_back">
+		<!--城市弹框-->
+		<!--<div class="mask_back">
 				<div class="mask_top">
 					<p>建议您的收货地址&nbsp;:&nbsp;<span>哈密市伊州区</span></p>
 					<v-distpicker province="河南省" city="郑州市" area="金水区"></v-distpicker>
 					<button class="btn1">返回</button><button class="btn2">保存</button>
 				</div>
 			</div>-->
-			<!--右侧信息-->
-			<!--<div class="header_menu">
+		<!--右侧信息-->
+		<!--<div class="header_menu">
 				<a href="/logoin/">登录</a>
 				<a href="/logoreg">注册</a>
 				<a href="/person/myorder">我的订单</a>
@@ -35,8 +35,8 @@
 				</div>
 				<div class="header_search">
 					<div class="search_box">
-						<input type="text" name="search" id="search" value="" />
-						<a href="javascript:void(0)" class="search_icon"><img src="../pages/index/assets/sel.jpg" alt="" /></a>
+						<input type="text" name="search" id="search" value=""/>
+						<a href="javascript:void(0)" class="search_icon"  @click="dianji()"><img src="../pages/index/assets/sel.jpg" alt="" /></a>
 						<div class="header_minnav">
 							<span>热门:</span>
 							<a href="javascript:void(0)">奇异果</a>
@@ -62,169 +62,278 @@
 			<div id="header_nav">
 				<div class="header_nav">
 					<div class="nav_all">
-						<a href="/Delshapinfenlei"><span>全部分类</span><img src="../pages/index/assets/header/list_icon.png" alt="" /></a>
+						<router-link to="/Delshapinfenlei?id=all"><span>全部分类</span><img src="../pages/index/assets/header/list_icon.png" alt="" /></router-link>
 					</div>
 					<!--隐藏菜单-->
 					<ul class="list_menu">
 						<li>
 							<img src="../pages/index/assets/header/fruits_icon.jpg" alt="" />
-							<a href="###">新鲜水果</a>
+							<router-link :to="{ path: '/Delshapinfenlei?id=11'}">新鲜水果</router-link>
 							<div class="submenu">
 								<span>应季水果</span>
 								<ul>
-									<li><a href="">草莓</a></li>
-									<li><a href="">草莓</a></li>
-									<li><a href="">草莓</a></li>
-									
+									<li>
+										<a href="">草莓</a>
+									</li>
+									<li>
+										<a href="">草莓</a>
+									</li>
+									<li>
+										<a href="">草莓</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">草莓</a></li>
-									<li><a href="">草莓</a></li>
-									<li><a href="">草莓</a></li>
+									<li>
+										<a href="">草莓</a>
+									</li>
+									<li>
+										<a href="">草莓</a>
+									</li>
+									<li>
+										<a href="">草莓</a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
 							<img src="../pages/index/assets/header/seafood_icon.jpg" alt="" />
-							<a href="">生猛海鲜</a>
+							<router-link :to="{ path: '/Delshapinfenlei'}">生猛海鲜</router-link>
+							<a href=""></a>
 							<div class="submenu">
 								<span>应季海鲜</span>
 								<ul>
-									<li><a href="">龙虾</a></li>
-									<li><a href="">龙虾</a></li>
-									<li><a href="">龙虾</a></li>
-									
+									<li>
+										<a href="">龙虾</a>
+									</li>
+									<li>
+										<a href="">龙虾</a>
+									</li>
+									<li>
+										<a href="">龙虾</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">龙虾</a></li>
-									<li><a href="">龙虾</a></li>
-									<li><a href="">龙虾</a></li>
+									<li>
+										<a href="">龙虾</a>
+									</li>
+									<li>
+										<a href="">龙虾</a>
+									</li>
+									<li>
+										<a href="">龙虾</a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
 							<img src="../pages/index/assets/header/meat_icon.jpg" alt="" />
-							<a href="">肉类家禽</a>
+							<router-link :to="{ path: '/Delshapinfenlei'}">肉类家禽</router-link>
 							<div class="submenu">
 								<span>肉类家禽</span>
 								<ul>
-									<li><a href="">鸡肉</a></li>
-									<li><a href="">鸡肉</a></li>
-									<li><a href="">鸡肉</a></li>
-									
+									<li>
+										<a href="">鸡肉</a>
+									</li>
+									<li>
+										<a href="">鸡肉</a>
+									</li>
+									<li>
+										<a href="">鸡肉</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">鸡肉</a></li>
-									<li><a href="">鸡肉</a></li>
-									<li><a href="">鸡肉</a></li>
+									<li>
+										<a href="">鸡肉</a>
+									</li>
+									<li>
+										<a href="">鸡肉</a>
+									</li>
+									<li>
+										<a href="">鸡肉</a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
 							<img src="../pages/index/assets/header/milk_icon.jpg" alt="" />
-							<a href="">蛋奶速食</a>
+							<router-link :to="{ path: '/Delshapinfenlei'}">蛋奶速食</router-link>
 							<div class="submenu">
 								<span>蛋奶速食</span>
 								<ul>
-									<li><a href="">牛奶</a></li>
-									<li><a href="">牛奶</a></li>
-									<li><a href="">牛奶</a></li>
-									
+									<li>
+										<a href="">牛奶</a>
+									</li>
+									<li>
+										<a href="">牛奶</a>
+									</li>
+									<li>
+										<a href="">牛奶</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">牛奶</a></li>
-									<li><a href="">牛奶</a></li>
-									<li><a href="">牛奶</a></li>
+									<li>
+										<a href="">牛奶</a>
+									</li>
+									<li>
+										<a href="">牛奶</a>
+									</li>
+									<li>
+										<a href="">牛奶</a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
 							<img src="../pages/index/assets/header/veggie_icon.jpg" alt="" />
-							<a href="">田园蔬菜</a>
+							<router-link :to="{ path: '/Delshapinfenlei'}">田园蔬菜</router-link>
 							<div class="submenu">
 								<span>田园蔬菜</span>
 								<ul>
-									<li><a href="">菠菜</a></li>
-									<li><a href="">菠菜</a></li>
-									<li><a href="">菠菜</a></li>
-									
+									<li>
+										<a href="">菠菜</a>
+									</li>
+									<li>
+										<a href="">菠菜</a>
+									</li>
+									<li>
+										<a href="">菠菜</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">菠菜</a></li>
-									<li><a href="">菠菜</a></li>
-									<li><a href="">菠菜</a></li>
+									<li>
+										<a href="">菠菜</a>
+									</li>
+									<li>
+										<a href="">菠菜</a>
+									</li>
+									<li>
+										<a href="">菠菜</a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
 							<img src="../pages/index/assets/header/sock_icon.jpg" alt="" />
-							<a href="">零食酒水</a>
+							<router-link :to="{ path: '/Delshapinfenlei'}">零食酒水</router-link>
 							<div class="submenu">
 								<span>零食酒水</span>
 								<ul>
-									<li><a href="">饼干</a></li>
-									<li><a href="">饼干</a></li>
-									<li><a href="">饼干</a></li>
-									
+									<li>
+										<a href="">饼干</a>
+									</li>
+									<li>
+										<a href="">饼干</a>
+									</li>
+									<li>
+										<a href="">饼干</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">饼干</a></li>
-									<li><a href="">饼干</a></li>
-									<li><a href="">饼干</a></li>
+									<li>
+										<a href="">饼干</a>
+									</li>
+									<li>
+										<a href="">饼干</a>
+									</li>
+									<li>
+										<a href="">饼干</a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
 							<img src="../pages/index/assets/header/groceries.jpg" alt="" />
-							<a href="">粮食杂货</a>
+							<router-link :to="{ path: '/Delshapinfenlei'}">粮食杂货</router-link>
 							<div class="submenu">
 								<span>粮食杂货</span>
 								<ul>
-									<li><a href="">大米</a></li>
-									<li><a href="">大米</a></li>
-									<li><a href="">大米</a></li>
-									
+									<li>
+										<a href="">大米</a>
+									</li>
+									<li>
+										<a href="">大米</a>
+									</li>
+									<li>
+										<a href="">大米</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">大米</a></li>
-									<li><a href="">大米</a></li>
-									<li><a href="">大米</a></li>
+									<li>
+										<a href="">大米</a>
+									</li>
+									<li>
+										<a href="">大米</a>
+									</li>
+									<li>
+										<a href="">大米</a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
 							<img src="../pages/index/assets/header/gift_icon.jpg" alt="" />
-							<a href="">礼品卡券</a>
+							<router-link :to="{ path: '/Delshapinfenlei'}">礼品卡券</router-link>
 							<div class="submenu">
 								<span>礼品卡券</span>
 								<ul>
-									<li><a href="">礼品</a></li>
-									<li><a href="">礼品</a></li>
-									<li><a href="">礼品</a></li>
-									
+									<li>
+										<a href="">礼品</a>
+									</li>
+									<li>
+										<a href="">礼品</a>
+									</li>
+									<li>
+										<a href="">礼品</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">礼品</a></li>
-									<li><a href="">礼品</a></li>
-									<li><a href="">礼品</a></li>
+									<li>
+										<a href="">礼品</a>
+									</li>
+									<li>
+										<a href="">礼品</a>
+									</li>
+									<li>
+										<a href="">礼品</a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						<li>
 							<img src="../pages/index/assets/header/home_icon.jpg" alt="" />
-							<a href="">家具用品</a>
+							<router-link :to="{ path: '/Delshapinfenlei'}">家具用品</router-link>
 							<div class="submenu">
 								<span>家具用品</span>
 								<ul>
-									<li><a href="">沙发</a></li>
-									<li><a href="">沙发</a></li>
-									<li><a href="">沙发</a></li>
-									
+									<li>
+										<a href="">沙发</a>
+									</li>
+									<li>
+										<a href="">沙发</a>
+									</li>
+									<li>
+										<a href="">沙发</a>
+									</li>
+
 								</ul>
 								<ul>
-									<li><a href="">沙发</a></li>
-									<li><a href="">沙发</a></li>
-									<li><a href="">沙发</a></li>
+									<li>
+										<a href="">沙发</a>
+									</li>
+									<li>
+										<a href="">沙发</a>
+									</li>
+									<li>
+										<a href="">沙发</a>
+									</li>
 								</ul>
 							</div>
 						</li>
@@ -254,13 +363,30 @@
 		name: "myheader",
 		data() {
 			return {
-				
+
 			}
 		},
-		components:{
-			Daohang
+		components: {
+			Daohang,
 		},
-		
+		methods: {
+			dianji: function() {
+				if($("#search").val()) {
+					this.$router.push({
+						path: '/DetailsNosel'
+					});
+					
+				} else {
+					this.$router.push({
+						path: '*'
+					});
+					
+				}
+			}
+		},
+		mounthed(){
+			
+		}
 	}
 </script>
 <style scoped="scoped">
@@ -367,14 +493,15 @@
 		border: 2px solid #4b943d;
 		width: 450px;
 		height: 40px;
+		text-indent: 20px;
 	}
 	
 	.search_box .search_icon {
 		display: inline-block;
 		float: right;
 		padding: 0px 6px;
-		height: 46px;
-		line-height: 46px;
+		height: 44px;
+		line-height: 44px;
 		background-color: #4b943d;
 	}
 	
@@ -450,92 +577,107 @@
 		position: relative;
 		z-index: 999;
 	}
-	.header_nav:hover .list_menu{
+	
+	.header_nav:hover .list_menu {
 		display: block;
 	}
-	 /*隐藏页面*/
-	.header_nav .list_menu{
+	/*隐藏页面*/
+	
+	.header_nav .list_menu {
 		position: absolute;
 		text-align: center;
 		width: 168px;
-		top:50px;
+		top: 50px;
 		left: 0;
-		background-color:#FFFFFF;
+		background-color: #FFFFFF;
 		/*font-size: 20rem;*/
 		color: white;
-		border:1px solid #efeeec;
+		border: 1px solid #efeeec;
 		display: none;
 		z-index: 1;
 	}
-	.header_nav .list_menu li{
+	
+	.header_nav .list_menu li {
 		text-align: center;
 		float: none;
-		padding-top:16px;
+		padding-top: 16px;
 		padding-bottom: 15.4px;
-		border-bottom:1px solid #EFEEEC;
+		border-bottom: 1px solid #EFEEEC;
 	}
-	.header_nav .list_menu li a{
+	
+	.header_nav .list_menu li a {
 		margin-left: 12px;
 		vertical-align: middle;
 		color: #333333;
 	}
 	/*hover 显示*/
-	.header_nav .list_menu li:last-child{
-		border-bottom:none;
+	
+	.header_nav .list_menu li:last-child {
+		border-bottom: none;
 	}
-	.header_nav .list_menu li .submenu{
+	
+	.header_nav .list_menu li .submenu {
 		position: absolute;
-		background:#ebffe7;
-		left:168px;
-		top:-1px;
+		background: #ebffe7;
+		left: 168px;
+		top: -1px;
 		height: 490px;
 		width: 420px;
 		padding-top: 20px;
-		padding-left:40px;
+		padding-left: 40px;
 		display: none;
 	}
 	/*hover 显示*/
-	.header_nav .list_menu li:hover .submenu{
+	
+	.header_nav .list_menu li:hover .submenu {
 		display: block;
 	}
-	.header_nav .list_menu li:hover{
-		background-color:#ebffe7 ;
+	
+	.header_nav .list_menu li:hover {
+		background-color: #ebffe7;
 	}
-	.header_nav .list_menu li .submenu span{
-		 float: left;
-		 display: inline-block;
-		 font-size: 1.125rem;
-		 color: #498e3d;
+	
+	.header_nav .list_menu li .submenu span {
+		float: left;
+		display: inline-block;
+		font-size: 1.125rem;
+		color: #498e3d;
 	}
-	.header_nav .list_menu li .submenu ul{
+	
+	.header_nav .list_menu li .submenu ul {
 		float: right;
-		width:  280px;
+		width: 280px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
 	}
-	.header_nav .list_menu li .submenu ul:nth-of-type(2){
-		margin-top:15px;
+	
+	.header_nav .list_menu li .submenu ul:nth-of-type(2) {
+		margin-top: 15px;
 	}
-	.header_nav .list_menu li .submenu ul li{
+	
+	.header_nav .list_menu li .submenu ul li {
 		/*float: left;*/
 		border-bottom: none;
-		border-right:1px solid black;
-		padding-left:23px;
+		border-right: 1px solid black;
+		padding-left: 23px;
 		padding-right: 23px;
-		padding-top:0;
-		padding-bottom:0;
+		padding-top: 0;
+		padding-bottom: 0;
 		font-size: 1.0625rem;
 		color: #3f413f;
 	}
-	.header_nav .list_menu li .submenu ul li:last-child{
+	
+	.header_nav .list_menu li .submenu ul li:last-child {
 		border-right: 0;
 	}
-	.header_bottomnav::after{
+	
+	.header_bottomnav::after {
 		content: '';
 		display: block;
 		clear: both;
 	}
+	
 	.header_nav .nav_all {
 		height: 50px;
 		line-height: 50px;
@@ -590,6 +732,7 @@
 		color: white;
 	}
 	/*城市弹框*/
+	
 	.mask_back {
 		position: fixed;
 		top: 0;

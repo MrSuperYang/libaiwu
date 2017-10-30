@@ -7,8 +7,8 @@
 		<div class="del">
 			<div class="top">
 				<div class="chebox">
-					<input type="checkbox" name="" id="" value="" />
-					<span>爱果果水果店</span>
+					<input type="checkbox" name="" id="but5182" value="" />
+					<span>爱果果水果店1</span>
 				</div>
 				<div class="xuan">
 					<span>规格</span>
@@ -97,7 +97,16 @@
 <script>
 	export default {
 		name: 'detl',
-		components: {}
+		components: {},
+		mounted() {
+		$('.xuan span:nth-child(5)').on('click',function(){
+			this.parentNode.parentNode.remove();
+		});
+			$('#but5182').on('click',function(){
+			$('.chebox input').prop("checked",true);
+
+			});
+		}
 	}
 </script>
 
@@ -167,7 +176,7 @@
 		border: 1px solid #f2f2f2;
 	}
 	.content .xuan span:nth-child(5){
-		color: green;
+		color: green;cursor:pointer;
 	}
 	.content .xuan span:nth-child(2){
 		color: gainsboro;

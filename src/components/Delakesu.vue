@@ -1,496 +1,739 @@
 <template>
-	<div id="axq">
-		<!--导航栏部分-->
-		<div class="atop">
-			<span>您的当前位置：</span>
-			<span>首页</span>
-			<span>></span>
-			<span>全部商品</span>
-			<span>></span>
-			<span>苹果</span>
-			<span>></span>
-			<span>阿克苏</span>
-		</div>
-		<!--物品详情部分.-->
-		<div class="amid">
-			<div class="amidLeft">
-				<img src="../pages/index/assets/aimg/hamigua.jpg" />
-				<ul class="amidTop">
-					<li>距离开始还剩</li>
-					<li>5天</li>
-					<li>15</li>
-					<li>:</li>
-					<li>35</li>
-					<li>:</li>
-					<li>20</li>
-				</ul>
-				<div class="amidLeft2">
-					<img src="../pages/index/assets/aimg/右括号.jpg" />
-					<img src="../pages/index/assets/aimg/xq小橙子.jpg" />
-					<img src="../pages/index/assets/aimg/xq小橙子.jpg" />
-					<img src="../pages/index/assets/aimg/xq小橙子.jpg" />
-					<img src="../pages/index/assets/aimg/xq小橙子.jpg" />
-					<img src="../pages/index/assets/aimg/左括号.jpg" />
+	<div class="z_detail">
+		<p class="z_curLocal">你当前的位置是:
+			<a href="">首页</a><span> ></span>
+			<a href="">全部商品</a><span> ></span>
+			<a href="">新鲜水果</a><span> ></span>
+			<a href="">时令水果</a><span> ></span>
+			<a href="">新疆哈密瓜</a>
+		</p>
+		<div class="z_content">
+			<div class="z_leftImg">
+				<!--大图-->
+				<div @mouseenter="showMask()" @mouseleave="hideMask()" class="z_bigImg">
+					<img :src="list.src" id="z_smallImg" />
+					<!--背景蒙板-->
+					<div class="z_mask"></div>
+				</div>
+				<!--放大的图片-->
+				<div class="z_showImg">
+					<img :src="list.src" width="916px" id="z_showImg" />
+				</div>
+				<!--小图轮播-->
+				<div class="z_smallImg" @mouseenter="tabImg()">
+					<img :src="list.src" alt="" class="noBorder" />
+					<img :src="list.src" class="border" />
+					<img :src="list.src" alt="" class="border" />
+					<img :src="list.src" alt="" class="border" />
+					<img :src="list.src" alt="" class="border" />
+					<img :src="list.src" alt="" class="border" />
+					<img :src="list.src" class="noBorder" />
 				</div>
 			</div>
-			<div class="amidRight">
-				<h2>新疆哈密瓜1500kg</h2>
-				<ul class="amidRight2">
-					<li>全国</li>
-					<li>礼拜五</li>
-					<li>次日达</li>
-					<li>自营</li>
-				</ul>
-				<p class="amidRight3">2016年,礼拜五创立于新疆东大门哈密市,礼拜五致力于为注重生活品质的中国都市家庭提供来自全球的优质食材,以及优质的生活服务。属性设置元素的垂直对齐方式。说明 该属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐。允许指定负长度值和百分比值。这会使元素降低而不...</p>
-				<div class="amidRight4">
-					<span>现价：¥ 20.0</span>
-					<span>原价：0</span>
+			<div class="z_rightInfor">
+				<p class="z_title">{{list.goodsName}}</p>
+				<div class="z_label">
+					<span>全国</span>
+					<span class="z_color">礼拜五</span>
+					<span>次日达</span>
+					<span>自营</span>
 				</div>
-				<div class="amidRight5">
-					请选择规格
-					<span>500g</span>
-					<span>1000g</span>
-					<span>2000g</span>
+				<div class="z_rightMid">
+					<div class="midRight">
+						<img :src="list.src" />
+						<div>资深买家</div>
+					</div>
+					<!--简介-->
+					<p>{{list.detaile}}</p>
 				</div>
-				<div class="amidRight6">
-					请选择价格
-					<span>500k</span>
-					<span>1000w</span>
+				<!--价钱-->
+				<h2>现价: {{curPrice}}</h2>
+				<p class="weight">请选择规格: <span @click="lightWeight()" :class="{'bgColor':bgbol1}">500g</span><span @click="middleWeight()" :class="{'bgColor':bgbol2}">1000g</span><span @click="veryWeight()" :class="{'bgColor':bgbol3}">2000g</span></p>
+				<div class="z_num">
+					<span>数量 : </span>
+					<div class="change">
+						<span class="down" @click="inputMinus()">-</span>
+						<input type="text" readonly="readonly" class="inputNum" placeholder="1" />
+						<span class="up" @click="inputAdd()">+</span>
+					</div>
+					<span>件</span>
+					<div class="shopping"><router-link to="/shopcar" >加入购物车</router-link></div>
+					<div class="pay">
+						<a href="">立即购买</a>
+					</div>
 				</div>
-				<div class="amidRight7">
-					数量：
-					<p class="abxxdb5"><span>-</span> <span>1</span> <span>+</span></p>件
-					<button>加入购物车</button>
-					<button>立即购买</button>
-				</div>
-				<div class="amidRight8">
-					<img src="../pages/index/assets/aimg/chengsexing.jpg" alt="" />
-					<img src="../pages/index/assets/aimg/huisexing.jpg" />
-					<span>收藏此商品</span>
-					<span>分享到：</span>
-					<img src="../pages/index/assets/aimg/fenxiang.jpg" alt="" />
-					<img src="../pages/index/assets/aimg/空间.jpg" alt="" />
-					<img src="../pages/index/assets/aimg/lanren.jpg" alt="" />
-					<img src="../pages/index/assets/aimg/豆瓣.jpg" alt="" />
-					<img src="../pages/index/assets/aimg/weibo.jpg" alt="" />
+				<div class="z_like">
+					<div class="z_collect">
+						<img src="../pages/index/assets/红星星.png" v-if="!bols" />
+						<img src="../pages/index/assets/白星星.png" v-if="bols" />
+						<span @click="comCollect()" class="collectS">{{collectCont}}</span>
+					</div>
+					<div class="z_share">
+						分享到 :
+						<a href="http://s.share.baidu.com/?click=1&url=http%3A%2F%2Fwww.libaiwu.com.cn%2Fgoods%2Fdetail%3Fid%3D460&uid=0&to=tqq&type=text&pic=&title=%E7%A4%BC%E6%8B%9C%E4%BA%94+%7C+%E5%B1%B1%E7%BE%8A%E5%A5%B6%E7%9A%82+Caprina+Goat+Milk+Soap+%EF%BC%88110g%EF%BC%89&key=&desc=&comment=&relateUid=&searchPic=0&sign=on&l=1bsshden21bsshdfmm1bsshqf1r&linkid=j8zp1477aln&firstime=1508491325372"><img src="../pages/index/assets/4.png" /></a>
+						<a href="http://url.cn/553lmjx"><img src="../pages/index/assets/1.png" /></a>
+						<a href="http://url.cn/51OtOKP"><img src="../pages/index/assets/3.png" /></a>
+						<a href="http://url.cn/5GKPwl8"><img src="../pages/index/assets/5.png" /></a>
+						<a href="http://url.cn/597UzYo"><img src="../pages/index/assets/2.png" alt="" /></a>
+					</div>
 				</div>
 			</div>
 		</div>
-		<ul>
-			<li @click="toggle(index ,tab.view)" v-for="(tab,index) in tabs" :class="{active:active===index}">
-				{{tab.type}}
-			</li>
-		</ul>
-		<component :is="currentView"></component>
+		<!--详情和评价-->
+		<div class="z_show">
+			<div class="z_menu">
+				<span @click="show1()" :class="{'bord':bol}">商品详情</span>
+				<span @click="show2()" :class="{'bord':boleen}">商品评价</span>
+			</div>
+			<div class="z_menuCont">
+				<!--商品评价-->
+				<div v-if="boleen" class="z_total">
+					<!--每一条-->
+					<div class="z_first">
+						<div class="z_left">
+							<!--评价人-->
+							<img src="../pages/index/assets/personImg.png" class="perImg" />
+							<p class="method">黑夜中最亮的星</p>
+						</div>
+						<div class="z_light">
+							<!--星级评价-->
+							<div>
+								<img src="../pages/index/assets/红星星.png" />
+								<img src="../pages/index/assets/红星星.png" />
+								<img src="../pages/index/assets/红星星.png" />
+								<img src="../pages/index/assets/红星星.png" />
+								<img src="../pages/index/assets/白星星.png" />
+							</div>
+
+							<!--语言评价-->
+							<p>不错,瓜大皮薄,吃着比较甜,下次还会购买</p>
+							<!--附加图片-->
+							<div class="z_addImg">
+								<img src="../pages/index/assets/introImg2.jpg" alt="" />
+								<img src="../pages/index/assets/introImg4.jpg" alt="" />
+								<img src="../pages/index/assets/introImg3.jpg" alt="" />
+								<img src="../pages/index/assets/intro5.jpg" alt="" />
+							</div>
+
+						</div>
+					</div>
+					<!--第二条-->
+					<div class="z_first">
+						<!--评价人-->
+						<div class="z_left">
+							<img src="../pages/index/assets/personImg.png" class="perImg" />
+							<p class="method">黑夜中最亮的星</p>
+						</div>
+						<div class="z_light">
+							<!--星级评价-->
+							<div>
+								<img src="../pages/index/assets/红星星.png" />
+								<img src="../pages/index/assets/红星星.png" />
+								<img src="../pages/index/assets/红星星.png" />
+								<img src="../pages/index/assets/红星星.png" />
+								<img src="../pages/index/assets/白星星.png" />
+							</div>
+
+							<!--语言评价-->
+							<p>不错,瓜大皮薄,吃着比较甜,下次还会购买</p>
+							<!--附加图片-->
+							<div class="z_addImg">
+								<img src="../pages/index/assets/introImg2.jpg" alt="" />
+								<img src="../pages/index/assets/introImg4.jpg" alt="" />
+								<img src="../pages/index/assets/introImg3.jpg" alt="" />
+								<img src="../pages/index/assets/intro5.jpg" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--商品详情-->
+				<div v-if="bol" class="z_total1">
+					<div class="one">
+						<span>哈密瓜简介:</span>
+						<p>哈密瓜的品种资源很丰富。按成熟期不同，分早熟、中熟和晚熟品种</p>
+						<p>早、中熟的称为夏瓜，晚熟的称为冬瓜。早熟的品种主要有黄旦子、纳西甘、一包糖、包孜可口奇、石甜401等，其特点是皮薄肉细，香味浓郁。。</p>
+						<p>中熟品种主要有红心脆多汁、肉厚细腻、清香爽口而博得人们喜爱。晚熟品种主要有黑眉毛密极干、青麻皮密极干、炮台红、青皮红肉、青皮冬瓜、黄皮白肉可口奇等。“黑眉毛”、“青麻皮”的特点是瓜肉呈淡青色，储藏后肉质由脆硬，逐渐变得绵软多汁、甜爽而又醇香</p>
+						<img src="../pages/index/assets/商品详情.png" />
+					</div>
+					<div class="one">
+						<span>哈密瓜简介:</span>
+						<p>哈密瓜的品种资源很丰富。按成熟期不同，分早熟、中熟和晚熟品种</p>
+						<p>早、中熟的称为夏瓜，晚熟的称为冬瓜。早熟的品种主要有黄旦子、纳西甘、一包糖、包孜可口奇、石甜401等，其特点是皮薄肉细，香味浓郁。。</p>
+						<p>中熟品种主要有红心脆多汁、肉厚细腻、清香爽口而博得人们喜爱。晚熟品种主要有黑眉毛密极干、青麻皮密极干、炮台红、青皮红肉、青皮冬瓜、黄皮白肉可口奇等。“黑眉毛”、“青麻皮”的特点是瓜肉呈淡青色，储藏后肉质由脆硬，逐渐变得绵软多汁、甜爽而又醇香</p>
+						<img src="../pages/index/assets/商品详情.png" />
+					</div>
+				</div>
+
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
-	//商品详情部分的js
-
-	import DelDel from '../components/DelDel'
-	import Delpingjia from '../components/Delpingjia'
-
 	export default {
-		name: 'index',
-		components: {
-
-			Delpingjia,
-			DelDel,
-		},
-		data: {
-			active: 0,
-			currentView: 'DelDel',
-			tabs: [{
-					type: 'tab1',
-					view: 'DelDel'
-				},
-				{
-					type: 'tab2',
-					view: 'Delpingjia'
-				}
-			]
+		name: "z_detail",
+		data() {
+			return {
+				bol: true,
+				boleen: false,
+				curPrice: "",
+				collectCont: "收藏此商品",
+				//收藏:
+				bols: true,
+				bgbol1: false,
+				bgbol2: false,
+				bgbol3: false,
+				list:{}
+			}
 		},
 		methods: {
-			toggle(i, v) {
-				this.active = i
-				this.currentView = v
+			//放大镜
+			showMask: function() {
+				var zMask = document.getElementsByClassName("z_mask")[0];
+				var bigImg = document.getElementsByClassName("z_bigImg")[0];
+				var zContent = document.getElementsByClassName("z_content")[0];
+				var showImg = document.getElementsByClassName("z_showImg")[0];
+				var showImage = document.getElementById("z_showImg");
+				zMask.style.display = "block";
+				showImg.style.display = "block";
+				bigImg.onmousemove = function(event) {
+					var even = event || window.event;
+					//设置鼠标距离浏览器左和上边缘的位置
+					var x = event.pageX;
+					var y = event.pageY;
+					//获取大图与浏览器左和上边缘的位置
+					var leftX = zContent.offsetLeft;
+					var topY = zContent.offsetTop;
+					//获取 蒙板的宽和高0
+					var width = zMask.clientWidth;
+					var height = zMask.clientHeight;
+					//背景蒙板跟随
+					var left = (x - leftX - width / 2);
+					var top = (y - topY - width / 2);
+
+					//设置 水平 和 垂直的 极限值
+					//水平
+					if(left <= 0) {
+						left = 0;
+					} else if(left >= bigImg.clientWidth - width) {
+						left = bigImg.clientWidth - width;
+					}
+					//垂直
+					if(top <= 0) {
+						top = 0;
+					} else if(top >= bigImg.clientHeight - height) {
+						top = bigImg.clientHeight - height;
+					}
+					//赋值给蒙版
+					zMask.style.left = left + "px";
+					zMask.style.top = top + "px";
+
+					// 调整大图的 left 和 top
+					//计算比例系数
+					var scaleX = (showImage.clientWidth - showImg.clientWidth) / (bigImg.clientWidth - width);
+					var scaleY = (showImage.clientHeight - showImg.clientHeight) / (bigImg.clientHeight - height);
+					// 赋值 给大图的 left 和 top
+					showImage.style.left = -left * scaleX + "px";
+					showImage.style.top = -top * scaleY + "px";
+
+				}
+
+			},
+			hideMask: function() {
+				var zMask = document.getElementsByClassName("z_mask")[0];
+				var showImg = document.getElementsByClassName("z_showImg")[0];
+				zMask.style.display = "none";
+				showImg.style.display = "none";
+			},
+			tabImg: function() {
+				var tabImg = document.querySelectorAll(".z_smallImg img");
+				var smallImg = document.getElementById("z_smallImg");
+				var showImage = document.getElementById("z_showImg");
+				for(var i = 1; i < tabImg.length - 1; i++) {
+					tabImg[i].onmouseenter = function() {
+						//更改小图和大图的素材
+						smallImg.src = this.src;
+						showImage.src = this.src;
+					}
+				}
+			},
+
+			show1: function() {
+				this.bol = true,
+					this.boleen = false
+			},
+			show2: function() {
+				this.bol = false,
+					this.boleen = true
+			},
+			//数量增加的方法
+			inputAdd: function() {
+				var inputNum = document.getElementsByClassName("inputNum")[0];
+				//				console.log(inputNum.value);
+				//				inputNum.value=Math.floor(inputNum.value)+1;
+				inputNum.value++;
+
+			},
+			//数量减少的方法
+			inputMinus: function() {
+				var inputNum = document.getElementsByClassName("inputNum")[0];
+				//				console.log(inputNum.value);
+				if(inputNum.value <= 1) {
+					inputNum.value = 1;
+				} else {
+					//         			inputNum.value=Math.floor(inputNum.value)-1;
+					inputNum.value--;
+				}
+			},
+			//选择不同的规格
+			lightWeight: function() {
+				this.curPrice = 20;
+				this.bgbol1 = !this.bgbol1;
+				this.bgbol2 = false;
+				this.bgbol3 = false;
+			},
+			middleWeight: function() {
+				this.curPrice = 30;
+				this.bgbol2 = !this.bgbol2;
+				this.bgbol1 = false;
+				this.bgbol3 = false;
+			},
+			veryWeight: function() {
+				this.curPrice = 40;
+				this.bgbol3 = !this.bgbol3;
+				this.bgbol1 = false;
+				this.bgbol2 = false;
+			},
+			comCollect: function() {
+				this.bols = !this.bols;
+				var collectS = document.getElementsByClassName("collectS");
+				if(!this.bols) {
+					collectS.text = "已收藏";
+					this.collectCont = collectS.text;
+				} else {
+					collectS.text = "收藏此商品";
+					this.collectCont = collectS.text;
+				}
+			},
+			urls: function() {
+				var url = window.location.search;
+				var loc = url.substring(url.lastIndexOf('=') + 1, url.length);
+				//console.log(loc);
+				this.$http.post("/api/del/del", {
+					id: loc
+				}, {}).then(function(req) {
+					this.list = req.data[0];
+					this.curPrice=this.list.currentPrice;
+					console.log(this.list);
+				});
 			}
+		},
+		mounted() {
+			this.urls();
 		}
+
 	}
 </script>
-<style>
-	* {
+<!--scoped 本样式只在该组件中使用,以免与其他样式产出冲突-->
+<style scoped>
+	/*改变规格背景颜色*/
+	
+	.bgColor {
+		background-color: green;
+	}
+	/*详情部分*/
+	
+	body,
+	div,
+	img,
+	a,
+	p,
+	span,
+	h2,
+	input {
 		margin: 0;
 		padding: 0;
 	}
 	
-	ul li {
-		list-style-type: none;
-	}
-	/*导航栏部分的css*/
-	
-	.atop {
-		width: 1280px;
-		height: 54px;
-		margin: 20px auto;
-		line-height: 54px;
-		font-size: 15px;
-		color: #787878;
-		text-indent: 20px;
-		background-color: #f4f4f4;
-	}
-	/*导航栏下边物品详情部分的内容*/
-	
-	.amid {
+	.z_detail {
 		width: 1280px;
 		margin: 0 auto;
-		display: flex;
-		justify-content: space-between;
+		/*background-color: pink;*/
 	}
-	/*物品详情左边的图片*/
 	
-	.amidLeft {
-		width: 500px;
+	.z_content {
 		position: relative;
-		border: 1px solid #e4e4e4, ;
+	}
+	/*所有的a标签去下划线*/
+	
+	.z_curLocal a {
+		text-decoration: none;
 	}
 	
-	.amidTop {
-		width: 366px;
-		height: 57px;
-		border-radius: 0 0 18px 18px/0 0 18px 18px;
-		padding-left: 40px;
-		padding-right: 40px;
-		padding-top: 15px;
-		display: flex;
-		justify-content: space-between;
-		background-color: rgba(255, 255, 255, 0.4);
-		position: absolute;
-		top: 0;
-		left: 28px;
-	}
-	
-	.amidTop li:nth-child(1) {
-		font-size: 20px;
-		color: #333333;
-	}
-	
-	.amidTop li:nth-child(2) {
-		width: 46px;
-		height: 30px;
-		text-align: center;
-		line-height: 30px;
-		border-radius: 5px;
-		background-color: #ff5757;
-		color: white;
-		margin-left: 20px;
-	}
-	
-	.amidTop li:nth-child(3) {
-		width: 46px;
-		height: 30px;
-		margin-left: 5px;
-		text-align: center;
-		line-height: 30px;
-		border-radius: 5px;
-		background-color: #ff5757;
-		color: white;
-	}
-	
-	.amidTop li:nth-child(4) {
-		color: #ff5757;
-	}
-	
-	.amidTop li:nth-child(5) {
-		width: 46px;
-		height: 30px;
-		text-align: center;
-		line-height: 30px;
-		border-radius: 5px;
-		background-color: #ff5757;
-		color: white;
-	}
-	
-	.amidTop li:nth-child(6) {
-		color: #ff5757;
-	}
-	
-	.amidTop li:nth-child(7) {
-		width: 46px;
-		height: 30px;
-		text-align: center;
-		line-height: 30px;
-		border-radius: 5px;
-		background-color: #ff5757;
-		color: white;
-	}
-	
-	.amidLeft2 {
-		display: flex;
-		justify-content: space-between;
-		margin-top: 40px;
-	}
-	
-	.amidRight {
-		width: 740px;
-		height: 498px;
-		/*background-color: yellow;*/
-	}
-	/*物品详情右边的详细内容*/
-	
-	h2 {
-		margin-top: 15px;
-		color: #4d4d4d;
-	}
-	
-	.amidRight2 {
+	.z_curLocal {
+		color: #6f6f6f;
+		font-size: 15px;
+		line-height: 54px;
+		background-color: #f4f4f4;
 		margin-top: 20px;
+		margin-bottom: 18px;
+		padding-left: 20px;
 	}
 	
-	.amidRight2 li {
+	.z_curLocal a {
+		color: #6f6f6f;
+		font-size: 15px;
+	}
+	
+	.z_leftImg {
+		width: 500px;
+	}
+	
+	.z_bigImg {
+		width: 458px;
+		height: 458px;
+		border: 1px solid #e4e4e4;
+	}
+	
+	.z_bigImg img {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.z_smallImg {
+		margin-top: 22px;
+		/*清除图片中间的空隙*/
+		font-size: 0;
+		display: flex;
+		/*默认是主轴左对齐*/
+		/*justify-content:left;*/
+		align-items: center;
+	}
+	
+	.z_smallImg img {
+		margin-right: 12px;
+	}
+	
+	.z_smallImg .border {
+		width: 68px;
+		height: 68px;
+		border: 1px solid #e4e4e4;
+	}
+	
+	.z_smallImg .noBorder {
+		width: 20px;
+		height: 30px;
+	}
+	/*右侧部分*/
+	
+	.z_rightInfor {
+		position: absolute;
+		top: 18px;
+		left: 518px;
+	}
+	
+	.z_rightInfor .z_title {
+		margin-bottom: 20px;
+	}
+	
+	.z_label {
+		margin-bottom: 20px;
+	}
+	
+	.z_label span {
 		display: inline-block;
-		padding-left: 15px;
-		padding-right: 15px;
-		height: 26px;
-		margin-right: 20px;
-		line-height: 26px;
-		font-size: 18px;
-		background-color: #498e3d;
+		width: 45px;
+		line-height: 25px;
+		background-color: green;
 		color: white;
+		font-size: 12px;
 		text-align: center;
 	}
 	
-	.amidRight2 li:nth-child(2) {
+	.z_label .z_color {
 		background-color: #f08200;
 	}
 	
-	.amidRight3 {
-		height: 142px;
-		border: 1px solid #ededed;
-		margin-top: 23px;
-		background-image: url(../pages/index/assets/aimg/绿色橙子.jpg);
-		background-repeat: no-repeat;
-		padding-top: 38px;
-		color: #8c8c8c;
-		padding-left: 150px;
+	.z_rightMid {
+		width: 762px;
+		border-top: 1px solid #ededed;
+		border-bottom: 1px solid #ededed;
+		padding-top: 12px;
+		padding-bottom: 10px;
+		position: relative;
+	}
+	
+	.z_rightMid img {
+		width: 120px;
+		height: 120px;
+		/*background-color: cornflowerblue;*/
+	}
+	
+	.z_rightMid .midRight {
+		width: 120px;
+	}
+	
+	.z_rightMid .midRight div {
+		width: 120px;
 		line-height: 30px;
+		background-color: #ffe313;
+		text-align: center;
+		border-radius: 20px;
 	}
 	
-	.amidRight4 {
-		margin-top: 30px;
+	.z_rightMid p {
+		position: absolute;
+		top: 32px;
+		left: 152px;
+		font-size: 16px;
+		color: #666;
 	}
 	
-	.amidRight4 span:nth-child(1) {
-		font-size: 28px;
+	.z_rightInfor h2 {
 		color: red;
+		margin-top: 16px;
 	}
 	
-	.amidRight4 span:nth-child(2) {
+	.z_rightInfor .weight {
+		margin-top: 16px;
+		margin-bottom: 16px;
+	}
+	
+	.z_rightInfor .weight span {
+		display: inline-block;
+		width: 70px;
+		line-height: 20px;
+		border: 1px solid #d4d4d4;
+		margin-left: 15px;
+		text-align: center;
+		/*css鼠标手势*/
+		cursor: pointer;
+	}
+	
+	.z_rightInfor .z_num {
+		/*弹性布局*/
+		display: flex;
+		line-height: 35px;
+		margin-bottom: 30px;
+	}
+	
+	.z_num .change {
+		margin-left: 10px;
+		margin-right: 10px;
+		/*display: flex;*/
+	}
+	/*两个span和input中间因换行出现空格,分别浮动清除空格*/
+	
+	.z_num .change span {
+		display: inline-block;
+		width: 30px;
+		line-height: 28px;
+		background-color: #f2f2f2;
+		text-align: center;
+		font-weight: 600;
+		border: 1px solid #999;
+		font-size: 25px;
+		/*清除*/
+		float: left;
+		/*css鼠标手势*/
+		cursor: pointer;
+	}
+	
+	.z_num .change input {
+		text-align: center;
 		font-size: 18px;
-		color: #666666;
-		margin-left: 30px;
-		text-decoration: line-through;
+		width: 70px;
+		line-height: 28px;
+		border: 1px solid #999;
+		outline: none;
+		/*清除*/
+		float: left;
 	}
 	
-	.amidRight5 {
-		margin-top: 30px;
-		font-size: 20px;
-		color: #666666;
-	}
-	
-	.amidRight5 span {
-		margin-left: 20px;
-		width: 81px;
-		height: 32px;
+	.z_num .shopping {
+		width: 120px;
+		line-height: 35px;
+		color: white;
+		background-color: #f08200;
+		border-radius: 10px;
 		text-align: center;
-		border: 1px solid #666666;
+		margin-left: 25px;
+		margin-right: 16px;
+		/*css鼠标手势*/
+		cursor: pointer;
 	}
 	
-	.amidRight6 {
-		margin-top: 20px;
-		font-size: 20px;
-		color: #666666;
+	.z_num .pay a {
+		text-decoration: none;
+		color: white;
+		line-height: 35px;
 	}
 	
-	.amidRight6 span {
-		margin-left: 20px;
-		width: 81px;
-		height: 32px;
+	.z_num .pay {
+		width: 120px;
+		background-color: #f08200;
+		border-radius: 10px;
 		text-align: center;
-		border: 1px solid #666666;
+		/*css鼠标手势*/
+		cursor: pointer;
 	}
-	/*商品详情部分的内容css*/
 	
-	.amiddleTop {
+	.z_like {
+		font-size: 14px;
+		text-align: center;
+		display: flex;
+		height: 20px;
+	}
+	
+	.z_like .z_collect {
+		width: 120px;
+		margin-right: 14px;
+		display: flex;
+	}
+	/*商品收藏*/
+	
+	.z_collect span {
+		/*css鼠标手势*/
+		cursor: pointer;
+	}
+	
+	.z_collect img {
+		width: 20px;
+		margin-right: 6px;
+	}
+	
+	.z_like .z_share {
+		display: flex;
+	}
+	
+	.z_share img {
+		width: 20px;
+		margin: 0 3px;
+	}
+	/*详情和评价*/
+	
+	.z_show {
 		width: 1280px;
-		height: 48px;
-		margin: 0 auto;
-		margin-top: 40px;
-		background-color: #f4f4f4;
-	}
-	
-	.amiddleTop button {
-		width: 122px;
-		height: 48px;
 		border: 1px solid #e4e4e4;
+		/*background-color: lightpink;*/
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	
+	.z_menu {
 		background-color: #f4f4f4;
+		/*border-top:1px solid # #e4e4e4;*/
+		height: 48px;
 	}
 	
-	.amiddleTop button:nth-child(1) {
-		border: none;
-		background-color: white;
-		border-top: 2px solid green;
-	}
-	
-	.amiddleTopa {
-		width: 1242px;
-		margin: 0 auto;
+	.z_menu span {
+		display: inline-block;
+		width: 125px;
+		line-height: 46px;
 		border-left: 1px solid #e4e4e4;
 		border-right: 1px solid #e4e4e4;
-		padding-top: 40px;
-		padding-left: 38px;
+		text-align: center;
+		float: left;
+		/*css鼠标手势*/
+		cursor: pointer;
 	}
 	
-	.amiddleTopa h3 {
-		color: #ec6a17;
+	.z_menuCont {
+		width: 100%;
+	}
+	/*商品评价*/
+	
+	.z_total {
+		margin: 20px;
+		/*display: none;*/
 	}
 	
-	.amiddleTopa p {
-		margin-top: 20px;
-		font-size: 15px;
-		color: #8f8f8f;
+	.z_first {
+		border-bottom: 1px solid #e9e9e9;
+		padding-top: 16px;
+		padding-bottom: 20px;
+		/*overflow: hidden;*/
 	}
 	
-	.amiddleTopa img {
+	.z_first .z_left {
+		float: left;
+		text-align: center;
+	}
+	
+	.z_first .z_light {
+		margin-top: 10px;
+		margin-left: 30px;
+		float: left;
+	}
+	/*清浮动*/
+	
+	.z_first:after {
+		content: "";
 		display: block;
-		margin-top: 30px;
-	}
-	/*评价部分内容css*/
-	
-	.amiddleBottom {
-		width: 1280px;
-		height: 48px;
-		margin: 0 auto;
-		margin-top: 40px;
-		background-color: #f4f4f4;
+		clear: both;
 	}
 	
-	.amiddleBottom button {
-		width: 122px;
-		height: 48px;
-		border: 1px solid #e4e4e4;
-		background-color: #f4f4f4;
+	.z_addImg img {
+		width: 80px;
+		height: 80px;
+	}
+	/*商品详情*/
+	
+	.z_total1 {
+		margin-top: 20px;
+		margin-left: 20px;
+		/*display: none;*/
 	}
 	
-	.amiddleBottom button:nth-child(2) {
-		border: none;
+	.z_total1 span {
+		color: #f08200;
+		font-size: 18px;
+		font-weight: 600;
+	}
+	
+	.z_total1 p {
+		margin-top: 6px;
+		margin-bottom: 6px;
+	}
+	
+	.z_total1 img {
+		margin-left: 20px;
+	}
+	
+	.one {
+		margin-bottom: 20px;
+	}
+	/*切换时的边框样式*/
+	
+	.bord {
 		background-color: white;
 		border-top: 2px solid green;
+		border-bottom: 0 solid white;
+		color: green;
+	}
+	/*放大镜样式*/
+	
+	.z_mask {
+		width: 140px;
+		height: 140px;
+		background-color: red;
+		opacity: 0.4;
+		position: absolute;
+		display: none;
 	}
 	
-	.amiddleBottomA {
-		width: 1280px;
-		height: 238px;
-		margin: 0 auto;
-		border: 1px solid #e9e9e9;
-	}
-	/*评价内部评论部分的内容*/
-	
-	.amiddleBottomAa {
-		width: 1236px;
-		height: 158px;
-		margin: 0 auto;
-		color: #858585;
-		margin-top: 40px;
-		/*background-color: yellow;*/
-		border-bottom: 1px solid #e9e9e9;
-		position: relative;
-	}
-	
-	.amiddleBottomAa div {
-		display: inline-block;
-	}
-	
-	.amiddleBottomAa .amBAa2 {
-		width: 270px;
-		margin-left: 20px;
-	}
-	
-	.amiddleBottomAa .amBAa2 .amBAa2Text {
-		line-height: 34px;
-	}
-	
-	.amiddleBottomAa .amBAa3 {
-		width: 209px;
-		height: 23px;
-		display: inline-block;
+	.z_leftImg .z_showImg {
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
 		position: absolute;
 		top: 0;
-		right: 0;
-	}
-	/*加减法插件*/
-	
-	.amidRight7 {
-		margin-top: 30px;
+		left: 465px;
+		z-index: 1000;
+		display: none;
 	}
 	
-	.amidRight7 .abxxdb5 {
-		width: 105px;
-		height: 26px;
-		border: 1px solid #d3d3d3;
-		display: inline-block;
-	}
-	
-	.amidRight7 .abxxdb5 span {
-		display: inline-block;
-	}
-	
-	.amidRight7 .abxxdb5 span:nth-child(1) {
-		width: 22px;
-		height: 26px;
-		border: 1px solid #d3d3d3;
-		text-align: center;
-	}
-	
-	.amidRight7 .abxxdb5 span:nth-child(2) {
-		width: 46px;
-		height: 26px;
-		text-align: center;
-	}
-	
-	.amidRight7 .abxxdb5 span:nth-child(3) {
-		width: 22px;
-		height: 26px;
-		border: 1px solid #d3d3d3;
-		text-align: center;
-	}
-	
-	.amidRight7 button {
-		width: 150px;
-		height: 50px;
-		border: none;
-		color: white;
-		font-size: 20px;
-		background-color: #f08200;
-		display: inline-block;
-	}
-	
-	.amidRight7 button:nth-child(2) {
-		margin-left: 40px;
-	}
-	
-	.amidRight7 button:nth-child(3) {
-		margin-left: 20px;
-	}
-	/*微博空间,等等分享*/
-	
-	.amidRight8 {
-		margin-top: 50px;
-		font-size: 18px;
-	}
-	
-	.amidRight8 img {
-		margin-left: 10px;
+	.z_showImg #z_showImg {
+		position: absolute;
 	}
 </style>

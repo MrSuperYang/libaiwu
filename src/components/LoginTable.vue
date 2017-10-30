@@ -4,17 +4,17 @@
 			<p class="login_title"><span>登录</span><span><a href="javascript:void(0)" v-on:click="shows()">账号密码登录</a></span><img src="../pages/index/assets/login/login_icon.jpg" alt="" /></p>
 			<ul>
 				<li class="phone_reg">
-					<input type="text" name="" id="getTel" value="" placeholder="请输入手机号" v-model="Phone"/>
+					<input type="text" name="" id="getTel" value="" placeholder="请输入手机号" v-model="Phone" @blur="a" />
 					<div>
 						<p v-show="phone"><span>!</span><span>{{msg}}</span></p>
 					</div>
 				</li>
 				<li class="verify_reg phone_reg">
-					<input type="text" name="" id="verify_num" value="" placeholder="验证码" />
+					<input type="text" name="" id="verify_num" value="" placeholder="验证码" v-model="yan" @blur="c" />
 					<a href="###"><img src="../pages/index/assets/login/verify.jpg" alt="" /></a>
 					<a href="###"><span>看不清换一张</span></a>
 					<div>
-						<p v-show="verify"><span>!</span><span>{{msg}}</span></p>
+						<p v-show="verify"><span>!</span><span>{{msg2}}</span></p>
 					</div>
 				</li>
 				<li class="phone_verify">
@@ -26,8 +26,8 @@
 					<a href="/logosel">忘记密码?</a>
 				</li>
 				<li class="chooseBtn">
-					<button id="login">登录</button>
-					<button id="register">会员注册</button>
+					<button id="login" @click="contrast1">登录</button>
+					<button id="register"><router-link to="/logoreg">会员注册</router-link></button>
 				</li>
 				<li class="login_hint">
 					<p>提示:未注册用户将直接注册成为礼拜五用户</p>
@@ -42,23 +42,25 @@
 				<img src="../pages/index/assets/login/phone_icon.png" alt="" /></p>
 			<ul>
 				<li class="phone_reg">
-					<input type="text" name="" id="getTel" value="" placeholder="请输入手机号" v-model="Phone"/>
+					<input type="text" name="" id="getTel" value="" placeholder="请输入手机号" v-model="Phone" @blur="a" />
 					<div>
 						<p v-show="phone"><span>!</span><span>{{msg}}</span></p>
 					</div>
 				</li>
 				<li class="phone_reg num">
-					<input type="text" name="" id="getVerify" value="" placeholder="密码" v-model="password"/>
+					<input type="text" name="" id="getVerify" value="" placeholder="密码" v-model="password" @blur="b" />
 					<div>
-						<p v-show="verify"><span>!</span><span>{{msg}}</span></p>
+						<p v-show="verify"><span>!</span><span>{{msg1}}</span></p>
 					</div>
 				</li>
 				<li class="verify_reg phone_reg">
-					<input type="text" name="" id="verify_num" value="" placeholder="验证码" v-model="yan"/>
+					<input type="text" name="" id="verify_num" value="" placeholder="验证码" v-model="yan" @blur="c" />
 					<a href="###">
 						<img src="../pages/index/assets/login/verify.jpg" alt="" /></a>
 					<a href="###"><span>看不清换一张</span></a>
-					<div><p v-show="verify"><span>!</span><span>{{msg}}</span></p></div>
+					<div>
+						<p v-show="verify"><span>!</span><span>{{msg2}}</span></p>
+					</div>
 				</li>
 
 				<li class="login_choose">
@@ -66,8 +68,8 @@
 					<a href="/logosel">忘记密码?</a>
 				</li>
 				<li class="chooseBtn">
-					<button id="login">登录</button>
-					<button id="register">会员注册</button>
+					<button id="login" @click="contrast()">登录</button>
+					<button id="register"><router-link to="/logoreg">会员注册</router-link></button>
 				</li>
 				<li class="login_hint">
 					<p>提示:未注册用户将直接注册成为礼拜五用户</p>
@@ -86,33 +88,78 @@
 		name: 'logintable',
 		data() {
 			return {
-				msg: '3333',
+				msg: '',
 				phone: true,
 				verify: true,
 				show: true,
 				Phone: '',
 				password: '',
-				yan:'',
-				
+				yan: '',
+				msg1: "",
+				msg2: ""
 			}
 		},
 		methods: {
 			shows: function() {
 				this.show = !this.show;
 			},
-			contrast:function () {
+			contrast: function() {
+				//console.log(1);
 				var reg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/;
 				var phone = this.Phone;
-				var password = this.Password;
+				var password = this.password;
+				//console.log(phone);
 				if(reg.test(phone) && ((password.length >= 6) && (password.length <= 18)) && (this.yan.length == 4)) {
-					this.$http.post('/api/user/adduser', {
+
+					this.$http.post('/api/user/logoin', {
 						phone: phone,
 						password: password
 					}, {}).then((response) => {
-						console.log(response);
+
+						if(response.data.length == 0) {
+							this.msg = "请确定输入账号正确";
+							this.msg1 = "请确定输入密码正确";
+						} else {
+							localStorage.a = phone;
+							localStorage.b = "1";
+							this.Phone = "";
+							this.Password = "";
+							this.yan = "";
+							this.$router.push({
+								path: '/'
+							});
+						}
 					})
-				} else {
-					
+				}
+			},
+			contrast1: function() {
+				//console.log(1);
+				var reg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/;
+				var phone = this.Phone;
+				if(reg.test(phone) && (this.yan.length == 4)) {
+					localStorage.a = phone;
+					localStorage.b = "1";
+					this.Phone = "";
+					this.yan = "";
+					this.$router.push({
+						path: '/'
+					});
+				}
+			},
+			a: function() {
+				var reg = /^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}$/;
+				if(!reg.test(this.Phone)) {
+					this.msg = "手机号码不正确,请重新输入";
+				}
+			},
+			b: function() {
+				if(this.password.length < 6 || this.password.length > 18) {
+					this.msg1 = "密码不符合要求";
+				}
+			},
+			c: function() {
+				if(this.yan != "xqcr") {
+					this.msg2 = "验证码输入错误";
 				}
 			}
 		}
